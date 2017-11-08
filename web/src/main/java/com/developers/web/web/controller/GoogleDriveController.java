@@ -65,7 +65,7 @@ public class GoogleDriveController {
     @ResponseStatus(HttpStatus.OK)
     @RequestMapping(value = "upload/{id}", method = RequestMethod.POST)
     public void upload(@PathVariable String id, @RequestParam("file") MultipartFile file) {
-        driveService.upload(file, id);
+        driveService.upload(file);
     }
 
     @ResponseStatus(HttpStatus.OK)
