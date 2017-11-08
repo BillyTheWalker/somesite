@@ -12,7 +12,7 @@ import {WorksComponent} from "./works/works.component";
 import {ExpertiseComponent} from "./expertise/expertise.component";
 import {AboutUsComponent} from "./about-us/about-us.component";
 import {BlogComponent} from "./blog/blog.component";
-import {GetInTouchComponent} from "./get-in-touch/get-in-touch.component";
+import {GetInTouchComponent} from "./sources/get-in-touch/get-in-touch.component";
 import {AdminComponent} from "./admin/admin.component";
 import {Router, RouterModule, Routes} from "@angular/router";
 import {ContactsComponent} from "./contacts/contacts.component";
@@ -21,6 +21,8 @@ import {Http, RequestOptions, XHRBackend} from "@angular/http";
 import {HttpClient} from "../shared/services/http-client";
 import { CompanyComponent } from './about-us/company/company.component';
 import { OurTeamComponent } from './about-us/our-team/our-team.component';
+import { HeaderComponent } from './sources/header/header.component';
+import { FooterComponent } from './sources/footer/footer.component';
 
 const routes: Routes = [
   {path: "", component: HomeComponent},
@@ -33,7 +35,7 @@ const routes: Routes = [
   {path: "expertise", component: ExpertiseComponent},
   {path: "contacts", component: ContactsComponent},
   {
-    path: "services", component: ServicesComponent,redirectTo:"services/", children: [
+    path: "services", component: ServicesComponent, children: [
     {path: "dedicated-team", component: DedicatedTeamComponent},
     {path: "seo", component: SeoComponent},
     {path: "smm", component: SmmComponent},
@@ -60,7 +62,9 @@ const routes: Routes = [
     AdminComponent,
     ContactsComponent,
     CompanyComponent,
-    OurTeamComponent
+    OurTeamComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

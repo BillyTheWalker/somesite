@@ -1,11 +1,10 @@
 /**
  * Created by Kishka on 08.11.2017.
  */
-export class Work{
+export class User{
 
   id:number;
   name:string;
-  description:string;
-  photo:string;
+  role:string;
 
 }
