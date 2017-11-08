@@ -23,12 +23,17 @@ public class WorkerController {
     }
 
     @GetMapping("/find-one/{id}")
-    private Worker findOne(Long id) {
+    private Worker findOne(@PathVariable Long id) {
         return workerService.findOne(id);
     }
 
     @GetMapping("/find-all")
     private List<Worker> findAll() {
         return workerService.findAll();
+    }
+
+    @DeleteMapping("/delete/{id}")
+    private Boolean delete(@PathVariable Long id) {
+        return workerService.delete(id);
     }
 }

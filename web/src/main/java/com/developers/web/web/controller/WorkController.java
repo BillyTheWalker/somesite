@@ -24,7 +24,7 @@ public class WorkController {
     }
 
     @GetMapping("/find-one/{id}")
-    private Work findOne(Long id) {
+    private Work findOne(@PathVariable Long id) {
         return workService.findOne(id);
     }
 
@@ -32,5 +32,11 @@ public class WorkController {
     private List<Work> findAll() {
         return workService.findAll();
     }
+
+    @DeleteMapping("/delete/{id}")
+    private Boolean delete(@PathVariable Long id) {
+        return workService.delete(id);
+    }
+
 
 }
