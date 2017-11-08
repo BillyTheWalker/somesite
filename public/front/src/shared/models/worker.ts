@@ -6,5 +6,7 @@ export class Worker{
   id:number;
   name:string;
   position:string;
+  photoStart:string;
+  photoEnd:string;
 
 }
