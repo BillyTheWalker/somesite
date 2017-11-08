@@ -3,6 +3,8 @@ package com.developers.web.web.controller;
 import com.developers.web.web.model.Blog;
 import com.developers.web.web.service.BlogService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,13 +20,13 @@ public class BlogController {
 
 
     @PostMapping("/add")
-    private Blog add(@RequestParam String theme, @RequestParam String description) {
-        return blogService.add(new Blog().setTheme(theme).setDescription(description));
+    private ResponseEntity<Blog> add(@RequestParam String theme, @RequestParam String description) {
+        return new ResponseEntity<Blog>(blogService.add(new Blog().setTheme(theme).setDescription(description)), HttpStatus.OK);
     }
 
     @GetMapping("/find-one/{id}")
-    private Blog findOne(@PathVariable Long id) {
-        return blogService.findOne(id);
+    private ResponseEntity<Blog> findOne(@PathVariable Long id) {
+        return new ResponseEntity<Blog>(blogService.findOne(id), HttpStatus.OK);
     }
 
     @GetMapping("/find-all")
@@ -33,7 +35,7 @@ public class BlogController {
     }
 
     @DeleteMapping("/delete/{id}")
-    private Boolean delete(@PathVariable Long id) {
-        return blogService.delete(id);
+    private ResponseEntity<Boolean> delete(@PathVariable Long id) {
+        return new ResponseEntity<Boolean>(blogService.delete(id), HttpStatus.OK);
     }
 }
