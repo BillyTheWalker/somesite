@@ -23,6 +23,8 @@ import { CompanyComponent } from './about-us/company/company.component';
 import { OurTeamComponent } from './about-us/our-team/our-team.component';
 import { HeaderComponent } from './sources/header/header.component';
 import { FooterComponent } from './sources/footer/footer.component';
+import { TeamWorkerOneComponent } from './about-us/our-team/team-worker-one/team-worker-one.component';
+import { WorkOneComponent } from './works/work-one/work-one.component';
 
 const routes: Routes = [
   {path: "", component: HomeComponent},
@@ -64,7 +66,9 @@ const routes: Routes = [
     CompanyComponent,
     OurTeamComponent,
     HeaderComponent,
-    FooterComponent
+    FooterComponent,
+    TeamWorkerOneComponent,
+    WorkOneComponent
   ],
   imports: [
     BrowserModule,
