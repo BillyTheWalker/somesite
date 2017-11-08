@@ -29,24 +29,28 @@ export class HttpClient extends Http {
   get(url: string, options?: RequestOptionsArgs): Observable<Response> {
     options = this.getRequestOptionArgs(options);
     options.method = "GET";
+    url = this.checkUrl(url);
     return this.intercept(super.get(url, options));
   }
 
   post(url: string, body: string, options?: RequestOptionsArgs): Observable<Response> {
     options = this.getRequestOptionArgs(options, url);
     options.method = "POST";
+    url = this.checkUrl(url);
     return this.intercept(super.post(url, body, options));
   }
 
   put(url: string, body: string, options?: RequestOptionsArgs): Observable<Response> {
     options = this.getRequestOptionArgs(options);
     options.method = "PUT";
+    url = this.checkUrl(url);
     return this.intercept(super.put(url, body, options));
   }
 
   delete(url: string, options?: RequestOptionsArgs): Observable<Response> {
     options = this.getRequestOptionArgs(options);
     options.method = "DELETE";
+    url = this.checkUrl(url);
     return this.intercept(super.delete(url, options));
   }
 
@@ -117,4 +121,12 @@ export class HttpClient extends Http {
     });
 
   }
+
+  checkUrl(url: string): string {
+    if (url.indexOf("http://") != -1) {
+      return url;
+    }
+    return Url.url + url;
+  }
+
 }
