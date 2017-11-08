@@ -55,7 +55,7 @@ public class GoogleDriveServiceImpl implements GoogleDriveService {
     /**
      * Application name. Arbitrary as we use service account.
      */
-    private final String APPLICATION_NAME = "anna-logor";
+    private final String APPLICATION_NAME = "mplayer";
     /**
      * Core GoogleDrive file fields we will work with.
      */
@@ -88,7 +88,7 @@ public class GoogleDriveServiceImpl implements GoogleDriveService {
         try {
             HTTP_TRANSPORT = GoogleNetHttpTransport.newTrustedTransport();
             Credential credential = GoogleCredential
-                    .fromStream(GoogleDriveServiceImpl.class.getResourceAsStream("/anna-logor.json"))
+                    .fromStream(GoogleDriveServiceImpl.class.getResourceAsStream("/mplayer.json"))
                     .createScoped(SCOPES);
 
             driveService = new Drive.Builder(HTTP_TRANSPORT, JSON_FACTORY, credential)
