@@ -229,7 +229,7 @@ public class GoogleDriveServiceImpl implements GoogleDriveService {
     }
 
     @Override
-    public String upload(MultipartFile uploading, String folderId) {
+    public String upload(MultipartFile uploading) {
         String fileName = uploading.getOriginalFilename();
         String returnFileName = fileName;
 

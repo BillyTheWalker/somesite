@@ -21,7 +21,7 @@ public interface GoogleDriveService {
     
     File update(String id, String name);
 
-    String upload(MultipartFile file, String folderId);
+    String upload(MultipartFile file);
 
     void download(String id, HttpServletResponse response);
     
