@@ -14,7 +14,7 @@ import java.util.List;
  * Created by danul on 08.11.2017.
  */
 @RestController
-@RequestMapping("paragraph")
+@RequestMapping("/paragraph")
 public class ParagraphController {
     @Autowired
     private ParagraphService paragraphService;
