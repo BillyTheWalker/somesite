@@ -17,7 +17,7 @@ export class OurTeamComponent implements OnInit {
 
     // _workerService.findAll().subscribe(next=>{
     //   this.workers = next;
-    // });
+    // },error=>{console.error(error);});
 
     this.workers = this.test();
 

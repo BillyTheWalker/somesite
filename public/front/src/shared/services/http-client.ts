@@ -81,6 +81,7 @@ export class HttpClient extends Http {
       } else {
         if (options.headers.has("Multipart")) {
           options.headers.delete("Multipart");
+          options.headers.append("enctype", "multipart/form-data");
         } else {
           options.headers.append('Authorization', 'Basic  Y2xpZW50YXBwOjEyMzQ1Ng==');
           if (!options.headers.has("Content-Type")) {

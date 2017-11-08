@@ -2,7 +2,7 @@
  * Created by Kishka on 08.11.2017.
  */
 import {Injectable} from "@angular/core";
-import {Http} from "@angular/http";
+import {Headers, Http, RequestOptions} from "@angular/http";
 import {Observable} from "rxjs/Observable";
 import {Work} from "../models/work";
 
@@ -16,7 +16,9 @@ export class WorkService {
   }
 
   add(worker: FormData): Observable<Work> {
-    return this._http.post("/work/add", worker).map(res => res.json()).catch(error => Observable.throw(error));
+    let options = new RequestOptions();
+    options.headers = new Headers({"Multipart": "Multipart"});
+    return this._http.post("/work/add", worker, options).map(res => res.json()).catch(error => Observable.throw(error));
   }
 
   findOne(id: number): Observable<Work> {

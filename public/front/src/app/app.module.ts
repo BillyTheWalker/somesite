@@ -25,6 +25,12 @@ import { HeaderComponent } from './sources/header/header.component';
 import { FooterComponent } from './sources/footer/footer.component';
 import { TeamWorkerOneComponent } from './about-us/our-team/team-worker-one/team-worker-one.component';
 import { WorkOneComponent } from './works/work-one/work-one.component';
+import { BlogOneComponent } from './blog/blog-one/blog-one.component';
+import { BlogOneFullComponent } from './blog/blog-one-full/blog-one-full.component';
+import { AddComponent } from './admin/add/add.component';
+import { AddBlogComponent } from './admin/add/add-blog/add-blog.component';
+import { AddWorkComponent } from './admin/add/add-work/add-work.component';
+import { AddWorkerComponent } from './admin/add/add-worker/add-worker.component';
 
 const routes: Routes = [
   {path: "", component: HomeComponent},
@@ -32,8 +38,16 @@ const routes: Routes = [
     {path: "company", component: CompanyComponent},
     {path: "team", component: OurTeamComponent},
   ]},
-  {path: "admin", component: AdminComponent},
-  {path: "blog", component: BlogComponent},
+  {path: "admin", component: AdminComponent,children:[
+    {path: "add", component: AddComponent,children:[
+      {path: "blog", component: AddBlogComponent},
+      {path: "work", component: AddWorkComponent},
+      {path: "worker", component: AddWorkerComponent},
+    ]},
+  ]},
+  {path: "blog", component: BlogComponent,children:[
+    {path: ":id", component: BlogOneFullComponent},
+  ]},
   {path: "expertise", component: ExpertiseComponent},
   {path: "contacts", component: ContactsComponent},
   {
@@ -68,7 +82,13 @@ const routes: Routes = [
     HeaderComponent,
     FooterComponent,
     TeamWorkerOneComponent,
-    WorkOneComponent
+    WorkOneComponent,
+    BlogOneComponent,
+    BlogOneFullComponent,
+    AddComponent,
+    AddBlogComponent,
+    AddWorkComponent,
+    AddWorkerComponent
   ],
   imports: [
     HttpModule,

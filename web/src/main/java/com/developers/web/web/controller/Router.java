@@ -10,6 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class Router {
     @GetMapping("/")
     private String index() {
-        return "forward:/";
+        return "forward:/index.html";
     }
 }
