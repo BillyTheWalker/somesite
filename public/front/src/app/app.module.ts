@@ -17,7 +17,7 @@ import {AdminComponent} from "./admin/admin.component";
 import {Router, RouterModule, Routes} from "@angular/router";
 import {ContactsComponent} from "./contacts/contacts.component";
 import {CookieService} from "angular2-cookie/core";
-import {Http, RequestOptions, XHRBackend} from "@angular/http";
+import {Http, HttpModule, RequestOptions, XHRBackend} from "@angular/http";
 import {HttpClient} from "../shared/services/http-client";
 import { CompanyComponent } from './about-us/company/company.component';
 import { OurTeamComponent } from './about-us/our-team/our-team.component';
@@ -71,6 +71,7 @@ const routes: Routes = [
     WorkOneComponent
   ],
   imports: [
+    HttpModule,
     BrowserModule,
     RouterModule.forRoot(routes, {useHash: true}),
   ],
