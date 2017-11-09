@@ -1,0 +1,33 @@
+/**
+ * Created by Anatoliy on 09.11.2017.
+ */
+import {Injectable} from "@angular/core";
+import {Http} from "@angular/http";
+import {Observable} from "rxjs";
+import {GetInTouch} from "../models/get-in-touch";
+@Injectable()
+export class GetInTouchServise{
+  constructor(private _http:Http){}
+
+  add(getInTouch:FormData): Observable<GetInTouch>  {
+    return this._http.post("/getInTouch/add",getInTouch).map(res=> res.json()).catch(error => Observable.throw(error));
+  }
+
+  findOne(id:number): Observable<GetInTouch> {
+    return this._http.get("/getInTouch/findOne/"+id).map(res=>res.json()).catch(error => Observable.throw(error));
+  }
+
+  delete(id:number): Observable<GetInTouch> {
+    return this._http.delete("/getInTouch/findOne/"+id).map(res=>res.json()).catch(error => Observable.throw(error));
+  }
+
+  findAll() : Observable<GetInTouch> {
+    return this._http.get("/getInTouch/findAll").map(res=>res.json()).catch(error => Observable.throw(error));
+  }
+
+  changeStatus(status:string,id:number): Observable<GetInTouch> {
+    let formData = new FormData();
+    formData.append("status",status)
+    return this._http.get("/getInTouch/changeStatus/" + id,formData).map(res => res.json()).catch(error => Observable.throw(error));
+  }
+}

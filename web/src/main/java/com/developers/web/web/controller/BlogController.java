@@ -21,12 +21,12 @@ public class BlogController {
 
     @PostMapping("/add")
     private ResponseEntity<Blog> add(@RequestParam String theme, @RequestParam String description) {
-        return new ResponseEntity<Blog>(blogService.add(new Blog().setTheme(theme).setDescription(description)), HttpStatus.OK);
+        return new ResponseEntity<>(blogService.add(new Blog().setTheme(theme).setDescription(description)), HttpStatus.OK);
     }
 
     @GetMapping("/find-one/{id}")
     private ResponseEntity<Blog> findOne(@PathVariable Long id) {
-        return new ResponseEntity<Blog>(blogService.findOne(id), HttpStatus.OK);
+        return new ResponseEntity<>(blogService.findOne(id), HttpStatus.OK);
     }
 
     @GetMapping("/find-all")
@@ -36,6 +36,6 @@ public class BlogController {
 
     @DeleteMapping("/delete/{id}")
     private ResponseEntity<Boolean> delete(@PathVariable Long id) {
-        return new ResponseEntity<Boolean>(blogService.delete(id), HttpStatus.OK);
+        return new ResponseEntity<>(blogService.delete(id), HttpStatus.OK);
     }
 }

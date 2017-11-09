@@ -16,8 +16,7 @@ import java.util.List;
 public class BlogServiceImpl implements BlogService {
     @Autowired
     private BlogRepository blogRepository;
-    @Autowired
-    private ParagraphRepository paragraphRepository;
+
 
     @Override
     public Blog add(Blog blog) {

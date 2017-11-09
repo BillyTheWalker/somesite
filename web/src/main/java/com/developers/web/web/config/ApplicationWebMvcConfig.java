@@ -21,19 +21,9 @@ import javax.servlet.MultipartConfigElement;
 public class ApplicationWebMvcConfig extends WebMvcConfigurerAdapter {
 
 
-    private static final String SWAGGER_API_VERSION = "1.0";
-    private static final String LICENSE_TEXT = "License";
-    private static final String title = "sample";
-    private static final String description = "Documentation for the project";
-    String rootPath = System.getProperty("catalina.home");
-    String[] PATH = {
-            "file:/" + rootPath + "/public/front/dist",
-            "classpath:/META-INF/resources/",
-            "classpath:/resources/",
-            "classpath:/static/",
-            "classpath:/public/"
 
-    };
+    String rootPath = System.getProperty("catalina.home");
+
     @Value("${base.path.file}")
     private String basePathFile;
 

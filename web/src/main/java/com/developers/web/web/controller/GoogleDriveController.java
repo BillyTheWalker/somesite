@@ -106,9 +106,7 @@ public class GoogleDriveController {
 
     private List<DriveFile> getDriveFilesFrom(List<File> list) {
         List<DriveFile> files = new LinkedList<>();
-        list.forEach(file -> {
-            files.add(getDriveFileFrom(file));
-        });
+        list.forEach(file -> files.add(getDriveFileFrom(file)));
         return files;
     }
 
