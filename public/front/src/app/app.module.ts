@@ -19,35 +19,46 @@ import {ContactsComponent} from "./contacts/contacts.component";
 import {CookieService} from "angular2-cookie/core";
 import {Http, HttpModule, RequestOptions, XHRBackend} from "@angular/http";
 import {HttpClient} from "../shared/services/http-client";
-import { CompanyComponent } from './about-us/company/company.component';
-import { OurTeamComponent } from './about-us/our-team/our-team.component';
-import { HeaderComponent } from './sources/header/header.component';
-import { FooterComponent } from './sources/footer/footer.component';
-import { TeamWorkerOneComponent } from './about-us/our-team/team-worker-one/team-worker-one.component';
-import { WorkOneComponent } from './works/work-one/work-one.component';
-import { BlogOneComponent } from './blog/blog-one/blog-one.component';
-import { BlogOneFullComponent } from './blog/blog-one-full/blog-one-full.component';
-import { AddComponent } from './admin/add/add.component';
-import { AddBlogComponent } from './admin/add/add-blog/add-blog.component';
-import { AddWorkComponent } from './admin/add/add-work/add-work.component';
-import { AddWorkerComponent } from './admin/add/add-worker/add-worker.component';
+import {CompanyComponent} from "./about-us/company/company.component";
+import {OurTeamComponent} from "./about-us/our-team/our-team.component";
+import {HeaderComponent} from "./sources/header/header.component";
+import {FooterComponent} from "./sources/footer/footer.component";
+import {TeamWorkerOneComponent} from "./about-us/our-team/team-worker-one/team-worker-one.component";
+import {WorkOneComponent} from "./works/work-one/work-one.component";
+import {BlogOneComponent} from "./blog/blog-one/blog-one.component";
+import {BlogOneFullComponent} from "./blog/blog-one-full/blog-one-full.component";
+import {AddComponent} from "./admin/add/add.component";
+import {AddBlogComponent} from "./admin/add/add-blog/add-blog.component";
+import {AddWorkComponent} from "./admin/add/add-work/add-work.component";
+import {AddWorkerComponent} from "./admin/add/add-worker/add-worker.component";
+import {BlogContainerComponent} from "./blog/blog-container/blog-container.component";
+import {SafeHtmlModule} from "../shared/pipes/safeHtml.module";
 
 const routes: Routes = [
   {path: "", component: HomeComponent},
-  {path: "about-us", component: AboutUsComponent, children:[
+  {
+    path: "about-us", component: AboutUsComponent, children: [
     {path: "company", component: CompanyComponent},
     {path: "team", component: OurTeamComponent},
-  ]},
-  {path: "admin", component: AdminComponent,children:[
-    {path: "add", component: AddComponent,children:[
+  ]
+  },
+  {
+    path: "admin", component: AdminComponent, children: [
+    {
+      path: "add", component: AddComponent, children: [
       {path: "blog", component: AddBlogComponent},
       {path: "work", component: AddWorkComponent},
       {path: "worker", component: AddWorkerComponent},
-    ]},
-  ]},
-  {path: "blog", component: BlogComponent,children:[
-    {path: ":id", component: BlogOneFullComponent},
-  ]},
+    ]
+    },
+  ]
+  },
+  {
+    path: "blog", component: BlogComponent, children: [
+    {path: "", component: BlogContainerComponent},
+    {path: "one/:id", component: BlogOneFullComponent},
+  ]
+  },
   {path: "expertise", component: ExpertiseComponent},
   {path: "contacts", component: ContactsComponent},
   {
@@ -88,12 +99,14 @@ const routes: Routes = [
     AddComponent,
     AddBlogComponent,
     AddWorkComponent,
-    AddWorkerComponent
+    AddWorkerComponent,
+    BlogContainerComponent
   ],
   imports: [
     HttpModule,
     BrowserModule,
     RouterModule.forRoot(routes, {useHash: true}),
+    SafeHtmlModule,
   ],
   providers: [CookieService, {
     provide: Http,

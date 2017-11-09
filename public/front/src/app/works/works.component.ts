@@ -14,7 +14,12 @@ export class WorksComponent implements OnInit {
   works: Work[] = [];
 
   constructor(private _workService: WorkService) {
-    this.works = this.test();
+    // this.works = this.test();
+    _workService.findAll().subscribe(next => {
+      this.works = next;
+    }, error => {
+      console.error(error)
+    });
   }
 
   ngOnInit() {

@@ -7,6 +7,6 @@ export class Blog {
   id: number;
   theme: string;
   description: string;
-  paragraph: Paragraph[];
+  paragraphs: Paragraph[];
 
 }

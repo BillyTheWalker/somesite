@@ -30,7 +30,7 @@ export class AddBlogComponent implements OnInit {
     let data = new FormData(this.blogFormVC.nativeElement);
     this._blogService.add(data).subscribe(next=>{
       console.log(JSON.stringify(next));
-      this.parFormVC.nativeElement.reset();
+      this.blogFormVC.nativeElement.reset();
       for(let one of this.parForms){
         one.append("idBlog",next.id+'');
         this._paragraphService.add(one).subscribe(next=>{
