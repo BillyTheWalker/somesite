@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
+import {GetInTouch} from "../../../../../shared/models/get-in-touch";
 
 @Component({
   selector: 'app-message-one',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MessageOneComponent implements OnInit {
 
+
+  @Input() message:GetInTouch;
   constructor() { }
 
   ngOnInit() {

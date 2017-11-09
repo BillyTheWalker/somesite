@@ -28,7 +28,7 @@ export class GetInTouchServise{
     return this._http.delete("/getInTouch/findOne/"+id).map(res=>res.json()).catch(error => Observable.throw(error));
   }
 
-  findAll() : Observable<GetInTouch> {
+  findAll() : Observable<GetInTouch[]> {
     return this._http.get("/getInTouch/findAll").map(res=>res.json()).catch(error => Observable.throw(error));
   }
 
