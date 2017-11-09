@@ -1,8 +1,8 @@
 <p>
   blog-one-full works!
 </p>
-<p>{{blog.theme}}</p>
-<div *ngFor="let one of blog.paragraph">
-  <img src="{{one.photo}}">
-  <p>{{one.description}}</p>
+<p [innerHTML]="blog.theme|safeHtml">{{blog.theme}}</p>
+<div *ngFor="let one of blog.paragraphs">
+  <img src="{{url}}{{one.photo}}">
+  <div [innerHTML]="one.description|safeHtml">{{one.description}}</div>
 </div>

@@ -1,7 +1,8 @@
-<div routerLink="{{blog.id}}">
+<div routerLink="one/{{blog.id}}">
   <p>
     blog-one works!
   </p>
-  <p>{{blog.theme}}</p>
-  <p>{{blog.description}}</p>
+  <div [innerHTML]="blog.theme|safeHtml"></div>
+  <img src="{{url}}{{blog.paragraphs[0].photo}}">
+  <div [innerHTML]="blog.description|safeHtml"></div>
 </div>
