@@ -37,6 +37,9 @@ import {WorkContainerComponent} from "./works/work-container/work-container.comp
 import {AdminToolsComponent} from "./admin/admin-tools/admin-tools.component";
 import {MainComponent} from "./main/main.component";
 import {GetInTouchSourceComponent} from "./sources/get-in-touch-source/get-in-touch-source.component";
+import {CallCenterComponent} from "./admin/call-center/call-center.component";
+import {MessageCallComponent} from "./admin/call-center/message-call/message-call.component";
+import {MessageOneComponent} from "./admin/call-center/message-call/message-one/message-one.component";
 
 const routes: Routes = [
   {
@@ -48,6 +51,11 @@ const routes: Routes = [
       {path: "worker", component: AddWorkerComponent},
     ]
     },
+    {
+      path: "call-center", component: CallCenterComponent, children: [
+      {path: "message", component: MessageCallComponent},
+    ]
+    }
   ]
   },
   {
@@ -121,7 +129,10 @@ const routes: Routes = [
     WorkOneFullComponent,
     WorkContainerComponent,
     AdminToolsComponent,
-    MainComponent
+    MainComponent,
+    CallCenterComponent,
+    MessageCallComponent,
+    MessageOneComponent
   ],
   imports: [
     HttpModule,
