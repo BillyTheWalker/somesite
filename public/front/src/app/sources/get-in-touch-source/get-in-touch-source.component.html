@@ -1,10 +1,10 @@
 <div>
-  <form>
-    <input type="text" placeholder="your name">
-    <input type="text" placeholder="Company name">
-    <input type="text" placeholder="Email">
-    <input type="text" placeholder="Phone">
-    <input type="text" placeholder="Write your message here">
-    <button (click)="send()">send</button>
+  <form #getInTouch>
+    <input type="text" name="name" placeholder="your name">
+    <input type="text" name="companyName" placeholder="Company name">
+    <input type="text" name="email" placeholder="Email">
+    <input type="text" name="phoneNumber" placeholder="Phone">
+    <input type="text" name="message" placeholder="Write your message here">
+    <button (click)="send(getInTouch)">send</button>
   </form>
 </div>
