@@ -13,7 +13,7 @@ public class Blog {
     private Long id;
 
     private String theme;
-
+    @Column(columnDefinition = "VARCHAR(10000)", name = "description")
     private String description;
 
     @OneToMany(mappedBy = "blog", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
