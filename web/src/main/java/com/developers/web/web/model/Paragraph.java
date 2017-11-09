@@ -14,6 +14,7 @@ public class Paragraph {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String photo;
+    @Column(columnDefinition = "VARCHAR(10000)", name = "description")
     private String description;
     @JsonIgnore
     @ManyToOne
