@@ -72,10 +72,10 @@ const routes: Routes = [
     {path: "contacts", component: ContactsComponent},
     {
       path: "services", component: ServicesComponent, children: [
+      {path: "", component: WebComponent},
       {path: "dedicated-team", component: DedicatedTeamComponent},
       {path: "seo", component: SeoComponent},
       {path: "smm", component: SmmComponent},
-      {path: "web", component: WebComponent},
     ]
     },
     {
