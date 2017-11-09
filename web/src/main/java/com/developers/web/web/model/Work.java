@@ -1,9 +1,6 @@
 package com.developers.web.web.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 /**
  * Created by danul on 08.11.2017.
@@ -15,6 +12,7 @@ public class Work {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+    @Column(columnDefinition = "VARCHAR(10000)", name = "description")
     private String description;
     private String photo;
 

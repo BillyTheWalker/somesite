@@ -1,5 +1,8 @@
-<p>
-  team-worker-one works!
-</p>
-<p>{{worker.name}}</p>
-<p>{{worker.position}}</p>
+<div>
+  <p>{{worker.name}}</p>
+  <div (mouseover)="mouseOver()" (mouseout)="mouseOut()" style="width: 10vw">
+    <img style="width: 10vw" [ngStyle]="{'display':photo1}" src="{{url}}{{worker.photoStart}}">
+    <img style="width: 10vw" [ngStyle]="{'display':photo2}" src="{{url}}{{worker.photoEnd}}">
+  </div>
+  <p>{{worker.position}}</p>
+</div>

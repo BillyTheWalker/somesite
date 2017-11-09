@@ -15,12 +15,10 @@ export class OurTeamComponent implements OnInit {
 
   constructor(private _workerService: WorkerService) {
 
-    // _workerService.findAll().subscribe(next=>{
-    //   this.workers = next;
-    // },error=>{console.error(error);});
-
-    this.workers = this.test();
-
+    _workerService.findAll().subscribe(next=>{
+      this.workers = next;
+      console.log(next);
+    },error=>{console.error(error);});
   }
 
   ngOnInit() {

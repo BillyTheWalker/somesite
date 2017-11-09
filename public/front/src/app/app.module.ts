@@ -33,6 +33,8 @@ import {AddWorkComponent} from "./admin/add/add-work/add-work.component";
 import {AddWorkerComponent} from "./admin/add/add-worker/add-worker.component";
 import {BlogContainerComponent} from "./blog/blog-container/blog-container.component";
 import {SafeHtmlModule} from "../shared/pipes/safeHtml.module";
+import {WorkOneFullComponent} from "./works/work-one-full/work-one-full.component";
+import {WorkContainerComponent} from "./works/work-container/work-container.component";
 
 const routes: Routes = [
   {path: "", component: HomeComponent},
@@ -69,7 +71,12 @@ const routes: Routes = [
     {path: "web", component: WebComponent},
   ]
   },
-  {path: "works", component: WorksComponent},
+  {
+    path: "works", component: WorksComponent, children: [
+    {path: "", component: WorkContainerComponent},
+    {path: "one/:id", component: WorkOneFullComponent},
+  ]
+  },
 ];
 
 @NgModule({
@@ -100,7 +107,9 @@ const routes: Routes = [
     AddBlogComponent,
     AddWorkComponent,
     AddWorkerComponent,
-    BlogContainerComponent
+    BlogContainerComponent,
+    WorkOneFullComponent,
+    WorkContainerComponent
   ],
   imports: [
     HttpModule,
