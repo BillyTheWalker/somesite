@@ -10,7 +10,14 @@ export class GetInTouchServise{
   constructor(private _http:Http){}
 
   add(getInTouch:FormData): Observable<GetInTouch>  {
-    return this._http.post("/getInTouch/add",getInTouch).map(res=> res.json()).catch(error => Observable.throw(error));
+    console.log("message= "+getInTouch.get("message"));
+    console.log("name= "+getInTouch.get("name"));
+    console.log("company name= "+getInTouch.get("companyName"));
+    console.log("phone number"+getInTouch.get("phoneNumber"));
+    return this._http.post("/getInTouch/add?name="+getInTouch.get("name")+"&companyName="+getInTouch.get("companyName")
+      +"&email="+getInTouch.get("email")+"&message="+getInTouch.get("message")
+      +"&phoneNumber="+getInTouch.get("phoneNumber"),new FormData())
+      .map(res=> res.json()).catch(error => Observable.throw(error));
   }
 
   findOne(id:number): Observable<GetInTouch> {
