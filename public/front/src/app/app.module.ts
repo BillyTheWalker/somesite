@@ -12,7 +12,6 @@ import {WorksComponent} from "./works/works.component";
 import {ExpertiseComponent} from "./expertise/expertise.component";
 import {AboutUsComponent} from "./about-us/about-us.component";
 import {BlogComponent} from "./blog/blog.component";
-import {GetInTouchComponent} from "./sources/get-in-touch/get-in-touch.component";
 import {AdminComponent} from "./admin/admin.component";
 import {Router, RouterModule, Routes} from "@angular/router";
 import {ContactsComponent} from "./contacts/contacts.component";
@@ -35,15 +34,11 @@ import {BlogContainerComponent} from "./blog/blog-container/blog-container.compo
 import {SafeHtmlModule} from "../shared/pipes/safeHtml.module";
 import {WorkOneFullComponent} from "./works/work-one-full/work-one-full.component";
 import {WorkContainerComponent} from "./works/work-container/work-container.component";
+import {AdminToolsComponent} from "./admin/admin-tools/admin-tools.component";
+import {MainComponent} from "./main/main.component";
+import {GetInTouchSourceComponent} from "./sources/get-in-touch-source/get-in-touch-source.component";
 
 const routes: Routes = [
-  {path: "", component: HomeComponent},
-  {
-    path: "about-us", component: AboutUsComponent, children: [
-    {path: "company", component: CompanyComponent},
-    {path: "team", component: OurTeamComponent},
-  ]
-  },
   {
     path: "admin", component: AdminComponent, children: [
     {
@@ -56,25 +51,40 @@ const routes: Routes = [
   ]
   },
   {
-    path: "blog", component: BlogComponent, children: [
-    {path: "", component: BlogContainerComponent},
-    {path: "one/:id", component: BlogOneFullComponent},
-  ]
-  },
-  {path: "expertise", component: ExpertiseComponent},
-  {path: "contacts", component: ContactsComponent},
-  {
-    path: "services", component: ServicesComponent, children: [
-    {path: "dedicated-team", component: DedicatedTeamComponent},
-    {path: "seo", component: SeoComponent},
-    {path: "smm", component: SmmComponent},
-    {path: "web", component: WebComponent},
-  ]
-  },
-  {
-    path: "works", component: WorksComponent, children: [
-    {path: "", component: WorkContainerComponent},
-    {path: "one/:id", component: WorkOneFullComponent},
+    path: "", component: MainComponent, children: [
+
+
+    {path: "", component: HomeComponent},
+    {
+      path: "about-us", component: AboutUsComponent, children: [
+      {path: "company", component: CompanyComponent},
+      {path: "team", component: OurTeamComponent},
+    ]
+    },
+
+    {
+      path: "blog", component: BlogComponent, children: [
+      {path: "", component: BlogContainerComponent},
+      {path: "one/:id", component: BlogOneFullComponent},
+    ]
+    },
+    {path: "expertise", component: ExpertiseComponent},
+    {path: "contacts", component: ContactsComponent},
+    {
+      path: "services", component: ServicesComponent, children: [
+      {path: "dedicated-team", component: DedicatedTeamComponent},
+      {path: "seo", component: SeoComponent},
+      {path: "smm", component: SmmComponent},
+      {path: "web", component: WebComponent},
+    ]
+    },
+    {
+      path: "works", component: WorksComponent, children: [
+      {path: "", component: WorkContainerComponent},
+      {path: "one/:id", component: WorkOneFullComponent},
+    ]
+    },
+
   ]
   },
 ];
@@ -92,7 +102,7 @@ const routes: Routes = [
     ExpertiseComponent,
     AboutUsComponent,
     BlogComponent,
-    GetInTouchComponent,
+    GetInTouchSourceComponent,
     AdminComponent,
     ContactsComponent,
     CompanyComponent,
@@ -109,7 +119,9 @@ const routes: Routes = [
     AddWorkerComponent,
     BlogContainerComponent,
     WorkOneFullComponent,
-    WorkContainerComponent
+    WorkContainerComponent,
+    AdminToolsComponent,
+    MainComponent
   ],
   imports: [
     HttpModule,

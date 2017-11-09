@@ -14,7 +14,7 @@ export class WorkOneFullComponent implements OnInit {
 
   url: string = Url.url + "/restful/google-drive/download/";
 
-  work: Work;
+  work: Work=new Work();
 
   constructor(private _workService: WorkService, private _activatedRoute: ActivatedRoute) {
     _activatedRoute.params.subscribe(next => {
